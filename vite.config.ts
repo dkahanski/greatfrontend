@@ -30,7 +30,6 @@ export default defineConfig({
 			],
 		}),
 	],
-	base: "https://dkahanski.github.io/greatfrontend",
 	server: {
 		host: true,
 		strictPort: true,
