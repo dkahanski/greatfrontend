@@ -30,6 +30,7 @@ export default defineConfig({
 			],
 		}),
 	],
+	base: "/greatfrontend/",
 	server: {
 		host: true,
 		strictPort: true,
