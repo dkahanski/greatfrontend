@@ -8,7 +8,7 @@ import "./styles/tailwind.css";
 
 const router = createRouter({
 	routeTree,
-	basepath: "/greatfrontend/",
+	basepath: import.meta.env.BASE_URL,
 });
 
 export type TanstackRouter = typeof router;
