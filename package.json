@@ -67,6 +67,7 @@
     "@storybook/addon-docs": "^9.0.16",
     "@storybook/addon-links": "^9.0.16",
     "@storybook/addon-themes": "^9.0.16",
+    "@storybook/addon-vitest": "^9.0.16",
     "@storybook/react-vite": "^9.0.16",
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/react-query-devtools": "^5.80.6",
@@ -108,7 +109,9 @@
     "typescript-eslint": "^8.33.1",
     "vite": "6.3.5",
     "vite-plugin-static-copy": "^3.0.0",
-    "vitest": "3.2.2"
+    "vitest": "3.2.2",
+    "@vitest/browser": "3.2.2",
+    "playwright": "^1.54.1"
   },
   "config": {
     "commitizen": {

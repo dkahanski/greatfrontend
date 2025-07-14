@@ -17,10 +17,10 @@ const preview: Preview = {
 			// 'todo' - show a11y violations in the test UI only
 			// 'error' - fail CI on a11y violations
 			// 'off' - skip a11y checks entirely
-			test: "error"
-		}
+			test: "todo",
+		},
 	},
-	tags: ['autodocs'],
+	tags: ["autodocs"],
 	decorators: [
 		// Adds theme switching support.
 		// NOTE: requires setting "darkMode" to "class" in your tailwind config

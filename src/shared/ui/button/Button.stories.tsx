@@ -46,6 +46,17 @@ export const Default: Story = {
 			iconRight={<StarIcon size={20} />}
 		/>
 	),
+	// play: async ({ canvasElement }) => {
+	// 	const canvas = within(canvasElement);
+	// 	await userEvent.click(canvas.getByRole("button"));
+	// 	await expect(canvas.getByRole("button")).toHaveTextContent("Button CTA");
+	// 	await expect(canvas.getByRole("button")).toHaveClass("filled");
+	// 	await expect(canvas.getByRole("button")).toHaveAttribute(
+	// 		"aria-label",
+	// 		"Button CTA"
+	// 	);
+	// 	await expect(canvas.getByRole("button")).not.toBeDisabled();
+	// },
 };
 
 export const Filled: Story = {
