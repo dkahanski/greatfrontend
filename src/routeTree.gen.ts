@@ -12,12 +12,26 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as ComponentsIndexImport } from './routes/components/index'
+import { Route as ComponentsButtonsImport } from './routes/components/buttons'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ComponentsIndexRoute = ComponentsIndexImport.update({
+  id: '/components/',
+  path: '/components/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ComponentsButtonsRoute = ComponentsButtonsImport.update({
+  id: '/components/buttons',
+  path: '/components/buttons',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -32,6 +46,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/components/buttons': {
+      id: '/components/buttons'
+      path: '/components/buttons'
+      fullPath: '/components/buttons'
+      preLoaderRoute: typeof ComponentsButtonsImport
+      parentRoute: typeof rootRoute
+    }
+    '/components/': {
+      id: '/components/'
+      path: '/components'
+      fullPath: '/components'
+      preLoaderRoute: typeof ComponentsIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +67,42 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/components/buttons': typeof ComponentsButtonsRoute
+  '/components': typeof ComponentsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/components/buttons': typeof ComponentsButtonsRoute
+  '/components': typeof ComponentsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/': typeof ComponentsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/components/buttons' | '/components'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/components/buttons' | '/components'
+  id: '__root__' | '/' | '/components/buttons' | '/components/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComponentsButtonsRoute: typeof ComponentsButtonsRoute
+  ComponentsIndexRoute: typeof ComponentsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComponentsButtonsRoute: ComponentsButtonsRoute,
+  ComponentsIndexRoute: ComponentsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +115,19 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.ts",
       "children": [
-        "/"
+        "/",
+        "/components/buttons",
+        "/components/"
       ]
     },
     "/": {
       "filePath": "index.ts"
+    },
+    "/components/buttons": {
+      "filePath": "components/buttons.tsx"
+    },
+    "/components/": {
+      "filePath": "components/index.tsx"
     }
   }
 }
