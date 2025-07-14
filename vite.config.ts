@@ -1,15 +1,15 @@
 /// <reference types="vitest/config" />
+import tailwindcss from "@tailwindcss/vite";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "node:path";
 import { normalizePath } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import { defineConfig } from "vitest/config";
-import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
-import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+import { fileURLToPath } from "node:url";
 const dirname =
 	typeof __dirname !== "undefined"
 		? __dirname
@@ -30,6 +30,7 @@ export default defineConfig({
 			],
 		}),
 	],
+	base: "https://dkahanski.github.io/greatfrontend",
 	server: {
 		host: true,
 		strictPort: true,
