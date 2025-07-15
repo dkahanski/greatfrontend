@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
 @import "tailwindcss";
 
 #root {
@@ -6,4 +8,8 @@
 
 * {
 	box-sizing: border-box;
+}
+
+@theme {
+	--font-noto: "Noto Sans", sans-serif;
 }

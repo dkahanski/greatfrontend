@@ -13,6 +13,7 @@ const buttonVariants = cva(
 		"focus:outline-none",
 		"focus:ring-4",
 		"focus:ring-indigo-100",
+		"font-noto",
 	],
 	{
 		variants: {
