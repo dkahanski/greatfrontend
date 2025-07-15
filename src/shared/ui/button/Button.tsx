@@ -176,7 +176,7 @@ const Button = ({
 			{...props}
 		>
 			{iconLeft}
-			{children}
+			{children && <span className="px-0.5">{children}</span>}
 			{iconRight}
 		</button>
 	);

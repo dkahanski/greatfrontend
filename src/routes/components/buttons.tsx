@@ -5,8 +5,8 @@ import Button from "../../shared/ui/button/Button";
 
 const ButtonsPage = (): FunctionComponent => {
 	return (
-		<div className="flex py-28 px-8 w-screen justify-center">
-			<div className="flex flex-col gap-12 items-start">
+		<div className="flex flex-col items-center bg-white py-28 px-6 md:px-8">
+			<div className="flex flex-col gap-12">
 				<div className="flex items-center gap-5 flex-wrap">
 					<Button size="md" variant="filled">
 						Button CTA
