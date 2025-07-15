@@ -1,6 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import type { ComponentProps, ReactNode } from "react";
-import type { FunctionComponent } from "../../../common/types";
+import { forwardRef, type ComponentProps, type ReactNode } from "react";
 import { cn } from "../../utils/css";
 
 const buttonVariants = cva(
@@ -156,30 +155,36 @@ type ButtonProps = ComponentProps<"button"> &
 		iconRight?: ReactNode;
 	};
 
-const Button = ({
-	variant,
-	size,
-	className,
-	disabled,
-	children,
-	iconLeft,
-	iconRight,
-	...props
-}: ButtonProps): FunctionComponent => {
-	const onlyIcon = !!(!children && (iconLeft || iconRight));
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+	(
+		{
+			variant,
+			size,
+			className,
+			disabled,
+			children,
+			iconLeft,
+			iconRight,
+			...props
+		},
+		ref
+	) => {
+		const onlyIcon = !!(!children && (iconLeft || iconRight));
 
-	return (
-		<button
-			className={cn(
-				buttonVariants({ variant, size, className, disabled, onlyIcon })
-			)}
-			{...props}
-		>
-			{iconLeft}
-			{children && <span className="px-0.5">{children}</span>}
-			{iconRight}
-		</button>
-	);
-};
+		return (
+			<button
+				ref={ref}
+				className={cn(
+					buttonVariants({ variant, size, className, disabled, onlyIcon })
+				)}
+				{...props}
+			>
+				{iconLeft}
+				{children && <span className="px-0.5">{children}</span>}
+				{iconRight}
+			</button>
+		);
+	}
+);
 
 export default Button;
