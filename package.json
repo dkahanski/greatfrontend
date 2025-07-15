@@ -34,8 +34,7 @@
 		"preview": "vite preview",
 		"commitlint": "commitlint --edit",
 		"commitizen": "exec < /dev/tty && git cz --hook || true",
-		"prepare": "husky",
-		"deploy": "npm run build && gh-pages -d dist"
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.0.1",
@@ -99,7 +98,6 @@
 		"eslint-plugin-react-refresh": "^0.4.20",
 		"eslint-plugin-storybook": "^9.0.16",
 		"eslint-plugin-unicorn": "^59.0.1",
-		"gh-pages": "^6.3.0",
 		"globals": "^16.2.0",
 		"husky": "^9.1.7",
 		"jsdom": "^26.1.0",
