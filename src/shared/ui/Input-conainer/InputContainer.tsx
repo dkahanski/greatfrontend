@@ -59,7 +59,7 @@ const InputContainer = ({
 				{icon && (
 					<div
 						area-hidden="true"
-						className="absolute left-2 top-1/2 -translate-y-1/2 text-neutral-500"
+						className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-500"
 					>
 						{icon}
 					</div>
@@ -71,7 +71,7 @@ const InputContainer = ({
 					iconLeft={hintIcon}
 					variant={"link.grey"}
 					className={cn(
-						"absolute right-2 top-1/2 -translate-y-1/2 focus:outline-none focus:ring-0",
+						"absolute right-3.5 top-1/2 -translate-y-1/2 focus:outline-none focus:ring-0",
 						error ? "text-red-500" : "text-neutral-500"
 					)}
 					onClick={onHintClick}

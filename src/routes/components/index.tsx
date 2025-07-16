@@ -3,9 +3,14 @@ import type { FunctionComponent } from "../../common/types";
 
 function RouteComponent(): FunctionComponent {
 	return (
-		<div className="flex flex-col items-center justify-center h-full">
-			<Link to="/components/buttons">Buttons</Link>
-		</div>
+		<>
+			<div className="flex flex-col items-center justify-center h-full">
+				<Link to="/components/buttons">Buttons</Link>
+			</div>
+			<div className="flex flex-col items-center justify-center h-full">
+				<Link to="/components/inputs">Inputs</Link>
+			</div>
+		</>
 	);
 }
 
