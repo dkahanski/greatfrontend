@@ -111,3 +111,19 @@ export const WithHelperTextAndError: Story = {
 		error: "This field is required",
 	},
 };
+
+export const Disabled: Story = {
+	args: {
+		id: "input-id",
+
+		inputProps: {
+			placeholder: "Enter text",
+		},
+
+		label: "Field Label",
+		helperText: "This is a helper text",
+		hintIcon: <HelpIcon />,
+		error: "This field is required",
+		disabled: true,
+	},
+};

@@ -28,6 +28,10 @@ const inputVariants = cva(
 				true: ["focus:ring-red-100", "focus:border-red-500"],
 				false: null,
 			},
+			disabled: {
+				true: ["border-neutral-100", "text-neutral-400", "cursor-not-allowed"],
+				false: null,
+			},
 		},
 	}
 );
@@ -35,7 +39,7 @@ const inputVariants = cva(
 type InputProps = ComponentProps<"input"> & VariantProps<typeof inputVariants>;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ className, ...props }, ref) => {
+	({ className, disabled, ...props }, ref) => {
 		const invalid =
 			props["aria-invalid"] === true || props["aria-invalid"] === "true";
 
@@ -43,7 +47,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 			<input
 				ref={ref}
 				{...props}
-				className={cn(inputVariants({ invalid, className }))}
+				className={cn(inputVariants({ invalid, disabled, className }))}
+				disabled={!!disabled}
 			></input>
 		);
 	}

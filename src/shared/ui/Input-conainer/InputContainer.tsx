@@ -13,6 +13,7 @@ type InputContainerProps = {
 	icon?: ReactNode;
 	hintIcon?: ReactNode;
 	onHintClick?: () => void;
+	disabled?: boolean;
 };
 
 const InputContainer = ({
@@ -24,6 +25,7 @@ const InputContainer = ({
 	icon,
 	hintIcon,
 	onHintClick,
+	disabled = false,
 }: InputContainerProps): FunctionComponent => {
 	const hintId = helperText ? `${id}-helper-text` : undefined;
 	const errorId = error ? `${id}-error` : undefined;
@@ -47,6 +49,7 @@ const InputContainer = ({
 					aria-invalid={!!error}
 					id={id}
 					{...inputProps}
+					disabled={disabled}
 					className={cn(
 						icon ? "pl-10" : "",
 						hintIcon ? "pr-8" : "",
@@ -64,10 +67,11 @@ const InputContainer = ({
 
 				<Button
 					aria-label="Hint Button"
+					disabled={disabled}
 					iconLeft={hintIcon}
 					variant={"link.grey"}
 					className={cn(
-						"absolute right-2 top-1/2 -translate-y-1/2 focus:outline-none",
+						"absolute right-2 top-1/2 -translate-y-1/2 focus:outline-none focus:ring-0",
 						error ? "text-red-500" : "text-neutral-500"
 					)}
 					onClick={onHintClick}
