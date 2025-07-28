@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { FunctionComponent } from "../../common/types";
 import EmailIcon from "../../shared/icons/EmailIcon";
 import HelpIcon from "../../shared/icons/HelpIcon";
-import InputContainer from "../../shared/ui/Input-conainer/InputContainer";
+import InputContainer from "../../shared/ui/input-conainer/InputContainer";
 
 const InputsPage = (): FunctionComponent => {
 	return (
