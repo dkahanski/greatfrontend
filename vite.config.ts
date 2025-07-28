@@ -31,6 +31,11 @@ export default defineConfig({
 		}),
 	],
 	base: "/",
+	resolve: {
+		alias: {
+			"@": path.resolve(dirname, "src"),
+		},
+	},
 	server: {
 		host: true,
 		strictPort: true,
