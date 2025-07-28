@@ -16,6 +16,7 @@ type InputContainerProps = {
 	disabled?: boolean;
 };
 
+// TODO: check how it works with React Hook Form with out forward ref
 const InputContainer = ({
 	id,
 	label,
