@@ -1,0 +1,74 @@
+@reference "@/styles/tailwind.css";
+
+@layer components {
+	.checkbox__wrapper {
+		@apply flex items-center gap-3 cursor-pointer;
+	}
+
+	.checkbox__wrapper--disabled {
+		@apply cursor-not-allowed;
+	}
+
+	.checkbox__label {
+		@apply font-noto font-normal text-base text-neutral-600;
+	}
+
+	.checkbox__wrapper--disabled .checkbox__label {
+		@apply text-neutral-400;
+	}
+
+	.checkbox__input {
+		@apply appearance-none
+			w-4 
+			h-4 
+			border 
+			border-gray-300 
+			rounded-sm 
+			m-1 
+			relative
+			cursor-pointer;
+	}
+
+	.checkbox__input:focus {
+		@apply outline-none ring-3 ring-indigo-100 border border-indigo-600;
+	}
+
+	.checkbox__input:checked,
+	.checkbox__input:indeterminate {
+		@apply bg-indigo-600 border-indigo-600;
+	}
+
+	.checkbox__input:disabled {
+		@apply cursor-not-allowed border-gray-300 bg-gray-300;
+	}
+
+	.checkbox__input:checked.checkbox__input:disabled,
+	.checkbox__input:indeterminate.checkbox__input:disabled {
+		@apply border-gray-200;
+	}
+
+	.checkbox__input:checked::after {
+		@apply content-[''] 
+			absolute 
+			left-[5px] 
+			top-[2px] 
+			w-[4px] 
+			h-[8px] 
+			border-white 
+			border-b-2 
+			border-r-2 
+			rotate-45;
+	}
+
+	.checkbox__input:indeterminate::after {
+		@apply content-[''] 
+			absolute 
+			left-1/2 
+			top-1/2
+			-translate-1/2
+			w-[10px] 
+			h-[2px] 
+			bg-white
+			rounded-sm;
+	}
+}

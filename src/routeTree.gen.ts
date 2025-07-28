@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as ComponentsIndexImport } from './routes/components/index'
 import { Route as ComponentsInputsImport } from './routes/components/inputs'
+import { Route as ComponentsCheckboxImport } from './routes/components/checkbox'
 import { Route as ComponentsButtonsImport } from './routes/components/buttons'
 
 // Create/Update Routes
@@ -33,6 +34,12 @@ const ComponentsIndexRoute = ComponentsIndexImport.update({
 const ComponentsInputsRoute = ComponentsInputsImport.update({
   id: '/components/inputs',
   path: '/components/inputs',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ComponentsCheckboxRoute = ComponentsCheckboxImport.update({
+  id: '/components/checkbox',
+  path: '/components/checkbox',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsButtonsImport
       parentRoute: typeof rootRoute
     }
+    '/components/checkbox': {
+      id: '/components/checkbox'
+      path: '/components/checkbox'
+      fullPath: '/components/checkbox'
+      preLoaderRoute: typeof ComponentsCheckboxImport
+      parentRoute: typeof rootRoute
+    }
     '/components/inputs': {
       id: '/components/inputs'
       path: '/components/inputs'
@@ -82,6 +96,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/inputs': typeof ComponentsInputsRoute
   '/components': typeof ComponentsIndexRoute
 }
@@ -89,6 +104,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/inputs': typeof ComponentsInputsRoute
   '/components': typeof ComponentsIndexRoute
 }
@@ -97,19 +113,31 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/checkbox': typeof ComponentsCheckboxRoute
   '/components/inputs': typeof ComponentsInputsRoute
   '/components/': typeof ComponentsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/components/buttons' | '/components/inputs' | '/components'
+  fullPaths:
+    | '/'
+    | '/components/buttons'
+    | '/components/checkbox'
+    | '/components/inputs'
+    | '/components'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/components/buttons' | '/components/inputs' | '/components'
+  to:
+    | '/'
+    | '/components/buttons'
+    | '/components/checkbox'
+    | '/components/inputs'
+    | '/components'
   id:
     | '__root__'
     | '/'
     | '/components/buttons'
+    | '/components/checkbox'
     | '/components/inputs'
     | '/components/'
   fileRoutesById: FileRoutesById
@@ -118,6 +146,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComponentsButtonsRoute: typeof ComponentsButtonsRoute
+  ComponentsCheckboxRoute: typeof ComponentsCheckboxRoute
   ComponentsInputsRoute: typeof ComponentsInputsRoute
   ComponentsIndexRoute: typeof ComponentsIndexRoute
 }
@@ -125,6 +154,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComponentsButtonsRoute: ComponentsButtonsRoute,
+  ComponentsCheckboxRoute: ComponentsCheckboxRoute,
   ComponentsInputsRoute: ComponentsInputsRoute,
   ComponentsIndexRoute: ComponentsIndexRoute,
 }
@@ -141,6 +171,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/components/buttons",
+        "/components/checkbox",
         "/components/inputs",
         "/components/"
       ]
@@ -150,6 +181,9 @@ export const routeTree = rootRoute
     },
     "/components/buttons": {
       "filePath": "components/buttons.tsx"
+    },
+    "/components/checkbox": {
+      "filePath": "components/checkbox.tsx"
     },
     "/components/inputs": {
       "filePath": "components/inputs.tsx"
