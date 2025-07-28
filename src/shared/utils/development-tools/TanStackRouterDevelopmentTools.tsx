@@ -1,10 +1,11 @@
+import { isProduction } from "@/common/utils";
 import React from "react";
-import { isProduction } from "../../../common/utils";
 
 export const TanStackRouterDevelopmentTools = isProduction
 	? (): null => null
 	: React.lazy(() =>
-			import("@tanstack/router-devtools").then((result) => ({
-				default: result.TanStackRouterDevtools,
+			import("@tanstack/react-router-devtools").then((module) => ({
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+				default: module.TanStackRouterDevtools,
 			}))
-	  );
+		);
