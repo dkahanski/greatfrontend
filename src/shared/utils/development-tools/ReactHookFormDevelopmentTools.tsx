@@ -1,4 +1,4 @@
-import { isProduction } from "@/common/utils";
+import { isProduction } from "@/common/environmentUtilities";
 import React from "react";
 
 export const ReactHookFormDevelopmentTools = isProduction
