@@ -13,6 +13,7 @@ type InputContainerProps = ComponentProps<"input"> & {
 	hintIcon?: ReactNode;
 	onHintClick?: () => void;
 	disabled?: boolean;
+	hintButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 };
 
 const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
@@ -27,6 +28,7 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 			hintIcon,
 			onHintClick,
 			disabled = false,
+			hintButtonProps,
 		},
 		ref
 	) => {
@@ -81,6 +83,7 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 							error ? "text-red-500" : "text-neutral-500"
 						)}
 						onClick={onHintClick}
+						{...hintButtonProps}
 					></Button>
 				</div>
 

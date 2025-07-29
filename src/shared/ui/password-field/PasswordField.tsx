@@ -22,6 +22,9 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
 				hintIcon={isPasswordVisible ? <EyeLineIcon /> : <EyeCloseLineIcon />}
 				id={id}
 				label="Password"
+				hintButtonProps={{
+					"aria-label": isPasswordVisible ? "Hide password" : "Show password",
+				}}
 				inputProps={{
 					type: isPasswordVisible ? "text" : "password",
 					placeholder: "**********",
