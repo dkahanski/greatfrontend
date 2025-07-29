@@ -38,6 +38,12 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 		const describedBy =
 			[hintId, errorId].filter(Boolean).join(" ") || undefined;
 
+		const {
+			className: hintButtonClassName,
+			"aria-label": hintButtonAriaLabel,
+			...restHintButtonProps
+		} = hintButtonProps || {};
+
 		return (
 			<div className="space-y-1">
 				{label && (
@@ -73,17 +79,18 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 					)}
 
 					<Button
-						aria-label="Hint Button"
+						aria-label={hintButtonAriaLabel ?? "Hint Button"}
 						disabled={disabled}
 						iconLeft={hintIcon}
 						type="button"
 						variant={"link.grey"}
 						className={cn(
 							"absolute right-3.5 top-1/2 -translate-y-1/2 focus:outline-none focus:ring-0",
-							error ? "text-red-500" : "text-neutral-500"
+							error ? "text-red-500" : "text-neutral-500",
+							hintButtonClassName
 						)}
 						onClick={onHintClick}
-						{...hintButtonProps}
+						{...restHintButtonProps}
 					></Button>
 				</div>
 

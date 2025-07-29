@@ -6,15 +6,17 @@ import InputContainer from "../input-conainer/InputContainer";
 type PasswordFieldProps = ComponentProps<"input"> & {
 	id: string;
 	error?: string;
+	isShowPasswordVisible?: boolean;
 };
 const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
-	({ id, error, ...props }, ref) => {
+	({ id, error, isShowPasswordVisible, ...props }, ref) => {
 		const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 		const handlePasswordVisibleToggle = (): void => {
 			setIsPasswordVisible(
 				(previewIsPasswordVisible) => !previewIsPasswordVisible
 			);
 		};
+
 		return (
 			<InputContainer
 				ref={ref}
@@ -24,6 +26,7 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
 				label="Password"
 				hintButtonProps={{
 					"aria-label": isPasswordVisible ? "Hide password" : "Show password",
+					className: isShowPasswordVisible ? "" : "invisible",
 				}}
 				inputProps={{
 					type: isPasswordVisible ? "text" : "password",
