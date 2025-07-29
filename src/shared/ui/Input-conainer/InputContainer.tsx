@@ -27,7 +27,6 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 			hintIcon,
 			onHintClick,
 			disabled = false,
-			...props
 		},
 		ref
 	) => {
@@ -61,7 +60,6 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 							hintIcon ? "pr-8" : "",
 							inputProps?.className
 						)}
-						{...props}
 					/>
 					{icon && (
 						<div
@@ -76,6 +74,7 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 						aria-label="Hint Button"
 						disabled={disabled}
 						iconLeft={hintIcon}
+						type="button"
 						variant={"link.grey"}
 						className={cn(
 							"absolute right-3.5 top-1/2 -translate-y-1/2 focus:outline-none focus:ring-0",
