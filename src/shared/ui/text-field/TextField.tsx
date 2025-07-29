@@ -3,7 +3,7 @@ import Input from "@/shared/ui/input/Input";
 import { cn } from "@/shared/utils/css";
 import { forwardRef, type ComponentProps, type ReactNode } from "react";
 
-type InputContainerProps = ComponentProps<"input"> & {
+type TextFieldProps = ComponentProps<"input"> & {
 	id: string;
 	label?: string;
 	error?: string;
@@ -16,7 +16,7 @@ type InputContainerProps = ComponentProps<"input"> & {
 	hintButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 };
 
-const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 	(
 		{
 			id,
@@ -109,4 +109,4 @@ const InputContainer = forwardRef<HTMLInputElement, InputContainerProps>(
 	}
 );
 
-export default InputContainer;
+export default TextField;

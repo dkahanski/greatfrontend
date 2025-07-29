@@ -1,7 +1,7 @@
 import EyeCloseLineIcon from "@/shared/icons/EyeCloseLineIcon";
 import EyeLineIcon from "@/shared/icons/EyeLineIcon";
 import { type ComponentProps, forwardRef, useState } from "react";
-import InputContainer from "../input-conainer/InputContainer";
+import TextField from "../text-field/TextField";
 
 type PasswordFieldProps = ComponentProps<"input"> & {
 	id: string;
@@ -18,7 +18,7 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
 		};
 
 		return (
-			<InputContainer
+			<TextField
 				ref={ref}
 				error={error}
 				hintIcon={isPasswordVisible ? <EyeLineIcon /> : <EyeCloseLineIcon />}
@@ -26,7 +26,7 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
 				label="Password"
 				hintButtonProps={{
 					"aria-label": isPasswordVisible ? "Hide password" : "Show password",
-					className: isShowPasswordVisible ? "" : "invisible",
+					className: isShowPasswordVisible ? "" : "invisible text-neutral-500",
 				}}
 				inputProps={{
 					type: isPasswordVisible ? "text" : "password",

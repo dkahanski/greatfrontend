@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { FunctionComponent } from "../../common/types";
 import EmailIcon from "../../shared/icons/EmailIcon";
 import HelpIcon from "../../shared/icons/HelpIcon";
-import InputContainer from "../../shared/ui/input-conainer/InputContainer";
+import TextField from "../../shared/ui/text-field/TextField";
 
 const InputsPage = (): FunctionComponent => {
 	return (
 		<div className="flex flex-col items-center bg-white py-28 px-6 md:px-8">
 			<div className="flex flex-col gap-12 w-[340px]">
-				<InputContainer
+				<TextField
 					helperText="This is a hint text."
 					hintIcon={<HelpIcon />}
 					id="input-id-1"
@@ -17,7 +17,7 @@ const InputsPage = (): FunctionComponent => {
 						placeholder: "name@email.com",
 					}}
 				/>
-				<InputContainer
+				<TextField
 					helperText="This is a hint text."
 					hintIcon={<HelpIcon />}
 					icon={<EmailIcon />}
@@ -27,7 +27,7 @@ const InputsPage = (): FunctionComponent => {
 						placeholder: "name@email.com",
 					}}
 				/>
-				<InputContainer
+				<TextField
 					disabled
 					helperText="This is a hint text."
 					hintIcon={<HelpIcon />}
@@ -37,7 +37,7 @@ const InputsPage = (): FunctionComponent => {
 						placeholder: "name@email.com",
 					}}
 				/>
-				<InputContainer
+				<TextField
 					error="This is an error message."
 					hintIcon={<HelpIcon />}
 					id="input-id-4"

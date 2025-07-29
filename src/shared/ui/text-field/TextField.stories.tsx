@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import EmailIcon from "../../icons/EmailIcon";
 import HelpIcon from "../../icons/HelpIcon";
-import InputContainer from "./InputContainer";
+import TextField from "./TextField";
 
-const meta: Meta<typeof InputContainer> = {
-	component: InputContainer,
+const meta: Meta<typeof TextField> = {
+	component: TextField,
 	title: "Components/InputContainer",
 	tags: ["autodocs"],
 	argTypes: {},
@@ -12,7 +12,7 @@ const meta: Meta<typeof InputContainer> = {
 
 export default meta;
 
-type Story = StoryObj<typeof InputContainer>;
+type Story = StoryObj<typeof TextField>;
 
 export const Default: Story = {
 	args: {
